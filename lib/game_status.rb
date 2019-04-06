@@ -36,16 +36,18 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
+  if won?(board) == false
+    return nil
+  else
     WIN_COMBINATIONS.each do |win_move|
       if win_move.all? {|space| board[space] == "X"}
         return "X"
-      elsif win_move.all? {|space| board[space] == "O"}
+        elsif win_move.all? {|space| board[space] == "O"}
         return "O"
-      else
-        return nil
       end
     end
   end
 end
+
+      
 
