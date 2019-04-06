@@ -35,4 +35,17 @@ def over?(board)
   won?(board) || draw?(board)
 end
 
+def winner(board)
+  if won?(board)
+    WIN_COMBINATIONS.each do |win_move|
+      if win_move.all? {|space| board[space] == "X"}
+        return "X"
+      elsif win_move.all? {|space| board[space] == "O"}
+        return "O"
+      else
+        return nil
+      end
+    end
+  end
+end
 
